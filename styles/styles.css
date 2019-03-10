@@ -4,10 +4,12 @@
     padding: 0px;
 }
 
-body {    
+body {
     font-family: 'Lato', sans-serif;
     background: rgb(243, 243, 243);
 }
+
+/* -------------- HEADER --------------- */
 
 h1 {
     position: fixed;
@@ -37,7 +39,7 @@ header {
     margin: 0 30px;
     position: relative;
     top: 5px;
-    left: 1px;    
+    left: 1px;
 }
 
 .triangle {
@@ -63,19 +65,19 @@ header {
 .item {
     display: inline-block;
     margin: 0px 6px;
-    list-style-type: none; 
+    list-style-type: none;
 }
 
 .dot {
     width: 2px;
     height: 2px;
     border-radius: 100%;
-    background-color: #8b8784;    
+    background-color: #454545;
     position: relative;
     top: 4px;
 }
 
-.right{
+.blog {
     position: relative;
     left: 3px;
 }
@@ -84,27 +86,29 @@ header {
     color: rgba(255, 255, 255, 255);
     text-decoration: none;
     text-transform: uppercase;
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 1px;
+    font-size: 10px;
+    font-weight: 400;
 }
 
 .menu span {
     color: #494e62;
     font-size: 10px;
-    margin: 0px 8px;     
+    margin: 0px 8px;
 }
 
 .menu a:hover {
     color: #2eb398;
 }
 
-#hexagons {
-    height: 721px;
+/* ------------- PORTFOLIO --------------- */
+
+.portfolio {
+    height: 726px;
     display: grid;
     justify-items: center;
     align-items: center;
     background: #ffffff;
+    margin-bottom: -5px;
 }
 
 .hex-box {
@@ -148,6 +152,7 @@ header {
     height: 209px;
     overflow: hidden;
     transform: rotate(60deg);
+    transition: transform 0.5s ease-in;
 }
 
 .hex-before {
@@ -169,7 +174,7 @@ header {
 
 .hex-box .hexagon:hover {
     transform: rotate(420deg);
-    transition: transform 0.7s ease-in;
+    transition: transform 0.5s ease-in;
 }
 
 .pic2 {
@@ -184,7 +189,8 @@ header {
 
 .pic4 {
     background-image: url("../assets/img/image4.png");
-    grid-area: 1 / 4 / span 1 / span 1;    
+    grid-area: 1 / 4 / span 1 / span 1;
+    background-position: 50% 126%;
 }
 
 .pic5 {
@@ -232,72 +238,103 @@ header {
     grid-area: 1 / 4 / span 1 / span 1;
 }
 
-/* ----------- ABOUT ---------------- */
+.portfolio-slider {
+    position: relative;
+    justify-self: left;
+    left: 10px;
+    top: 113px;
+}
+
+.portfolio-button {
+    cursor: pointer;
+    width: 6px;
+    height: 6px;
+    background: #ddd2c5;
+    float: left;
+}
+
+.portfolio-button:not(:first-child) {
+    margin-left: 3px;
+}
+
+.portfolio-button-active, .portfolio-button:hover {
+    background: #8b8784;
+}
+
+/* ------------- ABOUT ---------------- */
 
 .about {
     display: grid;
     grid-template-columns: 219px 424px 181px;
-    grid-template-rows: repeat(3, 110px);    
-    height: 341px;    
+    grid-template-rows: repeat(3, 110px);
+    height: 341px;
     justify-content: center;
     align-content: center;
     align-items: center;
-    background: #2eb398;    
+    background: #2eb398;
 }
+
 .portrait {
     display: grid;
     align-items: center;
-    height: 316px;    
-    grid-area: 1 / 1 / span 3 / span 1;     
-    padding-left: 24px;    
+    height: 316px;
+    grid-area: 1 / 1 / span 3 / span 1;
+    padding-left: 24px;
 }
-.portrait .image {  
-    height: 206px;  
-    background-image: url("../assets/img/portrait.png");       
+
+.portrait .image {
+    height: 206px;
+    background-image: url("../assets/img/portrait.png");
 }
+
 .about-headers {
-    grid-area: 1 / 2 / span 1 / span 2;    
+    grid-area: 1 / 2 / span 1 / span 2;
     font-family: 'MavenPro', 'Lato', sans-serif;
-    align-self: end;    
+    align-self: end;
 }
-.about-headers>h2 {    
+
+.about-headers>h2 {
     font-size: 30px;
     color: rgba(215, 252, 245, 255);
-    font-weight: 400;    
+    font-weight: 400;
 }
-.about-headers>h3{    
+
+.about-headers>h3 {
     font-size: 18px;
     color: rgba(32, 129, 109, 255);
     font-weight: 400;
 }
+
 .about>p {
     grid-area: 2 / 2 / span 1 / span 2;
-    font-size: 12px;    
+    font-size: 12px;
     color: rgba(215, 252, 245, 255);
     text-align: justify;
     padding-right: 20px;
-    line-height: 22px;     
+    line-height: 22px;
     font-weight: 400;
-    hyphens: initial;      
+    hyphens: initial;
 }
+
 .social-media {
-    grid-area: 3 / 3 / span 1 / span 1;  
+    grid-area: 3 / 3 / span 1 / span 1;
     padding-bottom: 37px;
     padding-left: 11px;
 }
+
 .social-media>a {
-    margin-right: -3px;    
+    margin-right: -3px;
 }
 
-a>img {    
-    filter: grayscale(100%) invert(1);     
-    mix-blend-mode: screen;    
+a>img {
+    filter: grayscale(100%) brightness(120%) invert(100%);
+    mix-blend-mode: screen;
 }
 
-a>img:hover {    
-    filter: none;     
+a>img:hover {
+    filter: none;
     mix-blend-mode: normal;
-    opacity: 1;    
+    opacity: 1;
 }
 
 .about .border {
@@ -308,20 +345,20 @@ a>img:hover {
     border-left: 1px solid #219d84;
 }
 
-
 /* -------------------- FOOTER --------------------- */
 
 .get-in-touch {
-    height: 564px;    
+    height: 564px;
     display: grid;
     justify-content: center;
-    align-content: center; 
-    background: #323232;     
+    align-content: center;
+    background: #323232;
 }
-.get-in-touch .box {    
+
+.get-in-touch .box {
     display: grid;
-    grid-template-columns: 600px 180px ;
-    grid-template-rows: 50px 365px ;
+    grid-template-columns: 600px 180px;
+    grid-template-rows: 50px 365px;
     align-content: center;
     justify-content: center;
     align-items: center;
@@ -332,21 +369,24 @@ a>img:hover {
     border-top: 1px solid #2b2b2b;
     border-bottom: 1px solid #2b2b2b;
 }
+
 .feedback-info {
     grid-area: 1 / 1 / span 1 / span 2;
-    height: 70px; 
+    height: 70px;
     width: 780px;
-    justify-self: start;  
+    justify-self: start;
     font-family: "MavenPro", "Lato", sans-serif;
-    margin-bottom: 15px; 
+    margin-bottom: 15px;
 }
-.feedback-info>h3 {    
+
+.feedback-info>h3 {
     font-size: 30px;
-    font-weight: 400; 
-    color: rgba(224, 224, 224, 255);   
+    font-weight: 400;
+    color: rgba(224, 224, 224, 255);
 }
-.feedback-info>p {    
-    font-size: 18px;     
+
+.feedback-info>p {
+    font-size: 18px;
     font-weight: 400;
     color: rgba(190, 190, 190, 255);
 }
@@ -354,14 +394,16 @@ a>img:hover {
 form {
     width: 580px;
     height: 370px;
-    grid-area: 2 / 1 / span 1 / span 1;    
-    justify-self: start;           
+    grid-area: 2 / 1 / span 1 / span 1;
+    justify-self: start;
 }
+
 fieldset {
-    border: none;       
+    border: none;
     padding-bottom: 15px;
     padding-top: 10px;
 }
+
 ::placeholder {
     color: #bebebe;
     font-family: "Lato", "MavenPro", sans-serif;
@@ -369,17 +411,20 @@ fieldset {
     font-weight: 400;
     line-height: 22px;
 }
-input {    
-    margin-bottom: 15px;       
+
+input {
+    margin-bottom: 15px;
 }
+
 .input-area {
     width: 565px;
     height: 38px;
     border: none;
     background: #454545;
-    padding-left: 15px;   
-    color: rgba(190, 190, 190, 255);  
+    padding-left: 15px;
+    color: rgba(190, 190, 190, 255);
 }
+ 
 .textarea {
     width: 565px;
     height: 140px;
@@ -387,24 +432,25 @@ input {
     background: #454545;
     padding-left: 15px;
     padding-top: 11px;
-    resize: none;  
-    color: rgba(190, 190, 190, 255);   
+    resize: none;
+    color: rgba(190, 190, 190, 255);
 }
+
 .btn {
     display: block;
     float: right;
     background: #2eb398;
-    font-family: "Lato", sans-serif;    
+    font-family: "Lato", sans-serif;
     font-size: 11px;
     font-weight: 700;
     color: rgba(215, 252, 245, 255);
     text-align: center;
     border: none;
     width: 90px;
-    height: 37px;    
+    height: 37px;
 }
 
-.quote { 
+.quote {
     grid-area: 2 / 2 / span 1 / span 1;
     height: 250px;
     width: 180px;
@@ -412,44 +458,51 @@ input {
     font-size: 12px;
     color: rgba(190, 190, 190, 255);
     text-align: justify;
-    align-self: start; 
+    align-self: start;
     line-height: 22px;
 }
+
 p>span {
     font-weight: 700;
     color: rgba(224, 224, 224, 255);
     word-wrap: break-all;
 }
+
 .contact {
-    font-weight: 700;   
+    font-weight: 700;
     text-decoration: none;
     padding-top: 30px;
 }
+
 div>img {
-    padding-right: 14px;    
+    padding-right: 14px;
 }
+
 .location {
     display: inline;
 }
+
 .location>img {
     padding-left: 3px;
 }
 
-
 .copyright {
     display: grid;
-    height: 41px;    
+    height: 41px;
     font-family: "MavenPro", sans-serif;
-    font-size: 8.65655pt;
-    color: rgba(69, 69, 69, 255);
+    font-size: 12px;
+    font-weight: 400;
+    color: #454545;
     align-content: center;
     background: #222222;
-    padding-left: 40px;
+    padding-left: 38px;
     border: 1px solid #222222;
 }
 
 @media (max-width: 700px) {
-    body {zoom:35%}
+    body {
+        zoom: 35%
+    }
     .container {
         position: relative;
         left: 50%;
@@ -461,5 +514,5 @@ div>img {
     }
     .about>p, .about, .feedback-info {
         font-size: 2vw;
-    }    
+    }
 }
